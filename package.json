@@ -1,0 +1,10 @@
+{
+  "name": "arte-a-la-vuelta",
+  "private": true,
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "dev:web": "npm run dev --workspace frontend",
+    "dev:api": "npm run dev --workspace backend",
+    "build": "npm run build --workspace frontend"
+  }
+}
