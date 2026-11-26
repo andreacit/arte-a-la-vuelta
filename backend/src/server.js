@@ -1,7 +1,10 @@
 import express from 'express';
+import preinscripciones from './routes/preinscripciones.js';
 import { talleres } from './data/talleres.js';
 
 const app = express();
+
+app.use('/api/preinscripciones', express.json({ limit: '8kb' }), preinscripciones);
 
 app.get('/api/talleres', (_request, response) => response.json(talleres));
 

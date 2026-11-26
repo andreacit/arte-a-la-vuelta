@@ -82,3 +82,44 @@ footer p { margin: .35rem 0 0; }
 }
 
 .foto-taller-detalle { max-width: 36rem; }
+
+.lista-sesiones {
+  display: grid;
+  gap: .75rem;
+  padding: 0;
+  list-style: none;
+  max-width: 44rem;
+}
+
+.lista-sesiones li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+  padding: .9rem;
+  border: 1px solid var(--borde);
+  border-radius: .5rem;
+}
+
+.preinscripcion { max-width: 40rem; }
+.preinscripcion form { display: grid; gap: 1rem; }
+.preinscripcion label { display: grid; gap: .35rem; }
+
+.preinscripcion input {
+  min-width: 0;
+  padding: .7rem;
+  border: 1px solid var(--borde);
+  border-radius: .4rem;
+  background: #fffaf0;
+  color: inherit;
+  font: inherit;
+}
+
+.preinscripcion input:focus-visible, .preinscripcion button:focus-visible {
+  outline: 2px solid var(--arcilla);
+  outline-offset: 3px;
+}
+
+.preinscripcion button { justify-self: start; border: 0; font: inherit; cursor: pointer; }
+.preinscripcion button:disabled { opacity: .65; cursor: wait; }

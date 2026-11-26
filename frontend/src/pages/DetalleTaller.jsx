@@ -29,9 +29,22 @@ export default function DetalleTaller({ id }) {
           </dl>
           <h2>Sesiones de demostración</h2>
           <p>Estas fechas y cupos son de ejemplo. Consulta al organizador para conocer la disponibilidad real.</p>
-          <ul>{taller.sesiones.map(sesion => (
-            <li key={sesion.id}>{sesion.modalidad && `${sesion.modalidad} · `}{sesion.fecha} · {sesion.horario} · {sesion.cupo} lugares</li>
-          ))}</ul>
+          <ul className="lista-sesiones">
+            {taller.sesiones.map(sesion => (
+              <li key={sesion.id}>
+                <div>
+                  {sesion.modalidad && <strong>{sesion.modalidad}<br /></strong>}
+                  {sesion.fecha} · {sesion.horario}<br />
+                  {sesion.cupo > 0 ? `${sesion.cupo} lugares de demostración` : 'Sin cupo'}
+                </div>
+                {sesion.cupo > 0 && (
+                  <Link className="boton" to={`/talleres/${taller.id}/preinscripcion/${sesion.id}`}>
+                    Preinscribirme
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
         </article>
       )}
     </>

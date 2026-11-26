@@ -2,6 +2,6 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   server: {
-    proxy: { '/api': 'http://localhost:3001' },
+    proxy: { '/api': process.env.API_PROXY_TARGET || 'http://localhost:3001' },
   },
 });
