@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { Router } from 'express';
 import { db } from '../db.js';
 import { talleres } from '../data/talleres.js';
+import { lugaresDisponibles } from '../services/cupos.js';
 import { enviarComprobante } from '../services/correo.js';
 
 const router = Router();
@@ -23,7 +24,11 @@ router.post('/', async (request, response) => {
 
   const folio = `AV-${randomUUID().replaceAll('-', '').slice(0, 16).toUpperCase()}`;
   try {
-    const registro = await db().query(
+    const cliente = db();
+    if (await lugaresDisponibles(cliente, taller, sesion) === 0) {
+      return response.status(409).json({ error: 'La sesión no tiene cupo.' });
+    }
+    const registro = await cliente.query(
       `INSERT INTO preinscripciones (folio, taller_id, sesion_id, nombre, correo)
        VALUES ($1, $2, $3, $4, $5)
        ON CONFLICT (taller_id, sesion_id, correo) DO NOTHING

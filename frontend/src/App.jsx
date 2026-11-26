@@ -6,6 +6,7 @@ import Catalogo from './pages/Catalogo';
 import DetalleTaller from './pages/DetalleTaller';
 import Preinscripcion from './pages/Preinscripcion';
 import Comprobante from './pages/Comprobante';
+import PanelOrganizador from './pages/PanelOrganizador';
 
 function DetalleRoute() {
   const { id } = useParams();
@@ -37,12 +38,14 @@ export default function App() {
           <Route path="/talleres/:id" element={<DetalleRoute />} />
           <Route path="/talleres/:id/preinscripcion/:sesionId" element={<PreinscripcionRoute />} />
           <Route path="/comprobante" element={<Comprobante />} />
+          <Route path="/organizador" element={<PanelOrganizador />} />
           <Route path="*" element={<><h1>Página no encontrada</h1><Link to="/">Volver al inicio</Link></>} />
         </Routes>
       </main>
       <footer>
         <strong>Andrea Citlalli Andrade Rico</strong>
         <p>Desarrollo de aplicaciones web en la nube y móviles · Mtro. Zeus Cobián · 2026B</p>
+        <p><Link to="/organizador">Acceso de organizadores</Link></p>
       </footer>
     </>
   );
