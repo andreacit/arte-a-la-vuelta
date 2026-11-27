@@ -9,3 +9,7 @@ CREATE TABLE IF NOT EXISTS preinscripciones (
   creada_en timestamptz NOT NULL DEFAULT now(),
   UNIQUE (taller_id, sesion_id, correo)
 );
+
+CREATE INDEX IF NOT EXISTS preinscripciones_confirmadas_por_sesion
+  ON preinscripciones (taller_id, sesion_id)
+  WHERE estado = 'confirmada';

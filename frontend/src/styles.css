@@ -123,3 +123,12 @@ footer p { margin: .35rem 0 0; }
 
 .preinscripcion button { justify-self: start; border: 0; font: inherit; cursor: pointer; }
 .preinscripcion button:disabled { opacity: .65; cursor: wait; }
+
+.salir-panel {
+  display: block;
+  margin-top: 1rem;
+  padding-inline: 0;
+  background: none;
+  color: var(--arcilla);
+  text-decoration: underline;
+}
